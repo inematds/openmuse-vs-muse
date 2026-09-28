@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Muse × OpenMuse — agente pessoal de IA: nuvem da Meta ou seu servidor</title>
+<meta name="description" content="Comparação completa entre o Meta Muse e o OpenMuse (CopilotKit, MIT): onde roda, navegador, memória, integrações, privacidade e custo — com cada afirmação checada em fonte primária.">
+<link rel="alternate" hreflang="pt-BR" href="https://inematds.github.io/openmuse-vs-muse/guia/">
+<link rel="alternate" hreflang="en" href="https://inematds.github.io/openmuse-vs-muse/guia/en/">
+<link rel="alternate" hreflang="es" href="https://inematds.github.io/openmuse-vs-muse/guia/es/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0c0c10; --bg2:#14141b; --card:#16161e; --line:#272730;
+    --txt:#e9e9ee; --mut:#9a9aa6; --amb:#E2A23B; --amb2:#f0c070; --sky:#38bdf8; --pro:#cbd5e1;
+    --ok:#4ade80; --warn:#fbbf24; --bad:#f87171;
+    color-scheme:dark;
+  }
+  body.light{
+    --bg:#f6f7f9; --bg2:#eceef2; --card:#ffffff; --line:#e1e3ea;
+    --txt:#1a1a22; --mut:#5b5b68; --amb:#b9791d; --amb2:#a16207; --sky:#0369a1; --pro:#b45309;
+    --ok:#15803d; --warn:#b45309; --bad:#b91c1c;
+    color-scheme:light;
+  }
+  body.light .hero .glow{opacity:.5}
+  body.light pre{background:#0e0e14;color:#d6d6e0}
+  body.light pre .c{color:#8a8a98}
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--txt);font:16px/1.65 Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+  h1,h2,h3{font-family:Sora,sans-serif;line-height:1.15;margin:0}
+  a{color:var(--amb);text-decoration:none}
+  code,pre{font-family:"JetBrains Mono",monospace}
+  .wrap{max-width:1160px;margin:0 auto;padding:0 22px}
+  .mut{color:var(--mut)} .amb{color:var(--amb)}
+  .chip{display:inline-block;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--amb);font-weight:600;font-family:Sora}
+  nav{position:sticky;top:0;z-index:30;backdrop-filter:blur(12px);background:rgba(12,12,16,.78);border-bottom:1px solid var(--line)}
+  nav .wrap{display:flex;align-items:center;gap:22px;height:60px}
+  nav .brand{display:flex;align-items:center;gap:8px;font-family:Sora;font-weight:800;letter-spacing:-.02em;color:var(--amb)}
+  nav .brand .emoji{font-size:1.25rem}
+  nav .sep{color:var(--mut);opacity:.45}
+  nav .inema{color:var(--sky);font-weight:600;font-size:.88rem;font-family:Sora}
+  nav .inema:hover{filter:brightness(1.15)}
+  nav .pro{color:var(--pro);font-weight:600;font-size:.88rem;font-family:Sora}
+  nav .pro:hover{filter:brightness(1.15)}
+  nav .clubpro{display:inline-flex;align-items:center;gap:6px}
+  nav .links{margin-left:auto;display:flex;align-items:center;gap:20px;font-size:.92rem}
+  nav .links a.sec{color:var(--mut)} nav .links a.sec:hover{color:var(--txt)}
+  .lang{display:inline-flex;gap:2px;font-family:Sora;font-size:.78rem}
+  .lang a{color:var(--mut);padding:.2em .45em;border-radius:6px} .lang a.on{color:var(--amb);background:rgba(226,162,59,.12)}
+  .tgl{background:var(--bg2);border:1px solid var(--line);color:var(--txt);width:38px;height:38px;border-radius:10px;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;font-size:1.05rem}
+  .tgl:hover{border-color:var(--amb)}
+  .btn{display:inline-block;background:var(--amb);color:#1a1206;font-weight:600;padding:.6em 1.05em;border-radius:10px;font-family:Sora}
+  .btn.ghost{background:transparent;color:var(--txt);border:1px solid var(--line)}
+  @media(max-width:900px){nav .links a.sec{display:none}}
+  @media(max-width:520px){nav .wrap{gap:8px;padding:8px 14px;height:auto;flex-wrap:wrap} nav .links{gap:8px;margin-left:0;width:100%;justify-content:space-between} nav .btn{padding:.45em .7em;font-size:.82rem} .tgl{width:34px;height:34px}}
+  .hero{position:relative;overflow:hidden;border-bottom:1px solid var(--line)}
+  .hero .glow{position:absolute;inset:-40% -20% auto auto;width:70%;height:600px;background:radial-gradient(closest-side,rgba(226,162,59,.22),transparent 70%);pointer-events:none}
+  .hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center;padding:74px 22px}
+  .hero h1{font-size:clamp(2.2rem,5vw,3.5rem);font-weight:800;letter-spacing:-.025em}
+  .hero p.lead{font-size:1.18rem;color:var(--mut);margin:1.1em 0 1.6em;max-width:38ch}
+  .hero .cta{display:flex;gap:12px;flex-wrap:wrap}
+  .hero figure{margin:0;border-radius:16px;overflow:hidden;border:1px solid var(--line);box-shadow:0 30px 80px -30px #000}
+  .hero figure img{width:100%;display:block}
+  @media(max-width:780px){.hero .wrap{grid-template-columns:1fr;padding:48px 22px}}
+  section{padding:62px 0;border-bottom:1px solid var(--line)}
+  section h2{font-size:clamp(1.5rem,3.4vw,2.1rem);font-weight:800;letter-spacing:-.02em}
+  section .sub{color:var(--mut);margin:.6em 0 2em;max-width:62ch}
+  .grid{display:grid;gap:16px}
+  .g3{grid-template-columns:repeat(3,1fr)} .g4{grid-template-columns:repeat(4,1fr)} .g2{grid-template-columns:repeat(2,1fr)}
+  @media(max-width:820px){.g3,.g4{grid-template-columns:1fr 1fr}}
+  @media(max-width:540px){.g2,.g3,.g4{grid-template-columns:1fr}}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px}
+  .card h3{font-size:1.05rem;margin-bottom:.4em}
+  .card p{color:var(--mut);font-size:.92rem;margin:0}
+  .card ul{color:var(--mut);font-size:.92rem;margin:.4em 0 0;padding-left:1.1em}
+  .flow{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:10px}
+  .flow span{background:var(--bg2);border:1px solid var(--line);border-radius:999px;padding:.45em .9em;font-size:.85rem;font-family:Sora;font-weight:600}
+  .flow .arr{color:var(--amb);border:none;background:none;padding:0 .1em}
+  pre{background:#0a0a0e;border:1px solid var(--line);border-radius:12px;padding:16px 18px;overflow:auto;font-size:.86rem;line-height:1.6;color:#d6d6e0}
+  pre .c{color:#6f6f7c} pre .k{color:var(--amb2)} pre .s{color:#9ece6a}
+  .step{display:grid;grid-template-columns:46px 1fr;gap:16px;margin-bottom:26px}
+  .step > div{min-width:0}
+  .step .b{width:46px;height:46px;border-radius:12px;background:var(--amb);color:#1a1206;font-family:Sora;font-weight:800;font-size:1.25rem;display:flex;align-items:center;justify-content:center}
+  .step h3{font-size:1.12rem;margin-bottom:.3em}
+  .step p{color:var(--mut);margin:.2em 0 .7em}
+  .phase{display:flex;gap:14px;padding:16px 0;border-bottom:1px solid var(--line)}
+  .phase:last-child{border:none}
+  .phase .tag{flex:0 0 92px;font-family:Sora;font-weight:800;color:var(--amb)}
+  .phase .d strong{display:block;margin-bottom:.2em}
+  .phase .d span{color:var(--mut);font-size:.92rem}
+  footer{padding:46px 0;text-align:center;color:var(--mut);font-size:.9rem}
+  .pill{display:inline-block;border:1px solid var(--line);border-radius:999px;padding:.3em .8em;font-size:.78rem;color:var(--mut);margin:4px}
+  /* tabelas de comparacao e validacao */
+  .tbl{overflow-x:auto;border:1px solid var(--line);border-radius:14px}
+  table{width:100%;border-collapse:collapse;font-size:.9rem;min-width:640px}
+  th,td{text-align:left;vertical-align:top;padding:12px 14px;border-bottom:1px solid var(--line)}
+  th{font-family:Sora;font-size:.8rem;letter-spacing:.06em;text-transform:uppercase;color:var(--amb);background:var(--bg2)}
+  tr:last-child td{border-bottom:none}
+  td:first-child{font-weight:600;font-family:Sora;white-space:nowrap}
+  td .mut{font-size:.84rem}
+  .st{display:inline-block;font-family:Sora;font-size:.72rem;font-weight:800;letter-spacing:.05em;padding:.2em .6em;border-radius:6px;white-space:nowrap}
+  .st.ok{color:var(--ok);background:rgba(74,222,128,.12)}
+  .st.warn{color:var(--warn);background:rgba(251,191,36,.12)}
+  .st.bad{color:var(--bad);background:rgba(248,113,113,.12)}
+  .note{border-left:3px solid var(--amb);background:var(--card);padding:14px 18px;border-radius:0 12px 12px 0;color:var(--mut);margin-top:22px;font-size:.93rem}
+  .note strong{color:var(--txt)}
+  .src{font-size:.9rem;color:var(--mut);columns:2;column-gap:28px;padding-left:1.1em}
+  .src li{margin-bottom:.4em;break-inside:avoid}
+  @media(max-width:680px){.src{columns:1}}
+</style>
+</head>
+<body>
+
+<nav><div class="wrap">
+  <a class="brand" href="#top"><span class="emoji">🤖</span> Muse × OpenMuse</a>
+  <span class="sep">|</span>
+  <span class="clubpro">
+    <a class="inema" href="https://inema.club" target="_blank" rel="noopener">INEMA.CLUB</a>
+    <span class="sep">-</span>
+    <a class="pro" href="https://inema.pro" target="_blank" rel="noopener">PRO</a>
+  </span>
+  <div class="links">
+    <a class="sec" href="#oque">O que é</a>
+    <a class="sec" href="#comparacao">Comparação</a>
+    <a class="sec" href="#validacoes">Validações</a>
+    <a class="sec" href="#guia">Rodar o OpenMuse</a>
+    <a class="sec" href="#veredito">Veredito</a>
+    <span class="lang"><a class="on" href="./">PT</a><a href="en/">EN</a><a href="es/">ES</a></span>
+    <button class="tgl" id="themeToggle" aria-label="Alternar tema" title="Alternar tema">🌙</button>
+    <a class="btn" href="https://github.com/inematds/openmuse-vs-muse" target="_blank" rel="noopener">GitHub</a>
+  </div>
+</div></nav>
+
+<header class="hero" id="top">
+  <div class="glow"></div>
+  <div class="wrap">
+    <div>
+      <span class="chip">Análise comparativa · fatos checados em 28/09/2026</span>
+      <h1>Seu agente de IA: na nuvem da Meta ou no <span class="amb">seu servidor</span>?</h1>
+      <p class="lead">O Meta Muse e o OpenMuse (CopilotKit, licença MIT) prometem a mesma ideia: um agente com computador e navegador próprios, que você vê trabalhar. Comparamos os dois ponto a ponto e checamos cada afirmação em fonte primária.</p>
+      <div class="cta">
+        <a class="btn" href="#comparacao">Ver a comparação</a>
+        <a class="btn ghost" href="#validacoes">O que foi validado</a>
+      </div>
+    </div>
+    <figure><img src="assets/banner.jpg" alt="Banner Muse × OpenMuse: agente pessoal de IA na nuvem da Meta ou no seu servidor"></figure>
+  </div>
+</header>
+
+<section id="oque"><div class="wrap">
+  <span class="chip">O que é</span>
+  <h2>Dois agentes, a mesma ideia central</h2>
+  <p class="sub">Esta página parte de um vídeo comparativo publicado no YouTube (em alemão) e confere o que ele afirma contra o anúncio oficial da Meta, a cobertura da imprensa e o próprio código do OpenMuse no GitHub.</p>
+  <div class="grid g3">
+    <div class="card"><h3>☁️ Meta Muse</h3><p>Agente pessoal lançado pela Meta em 8/set/2026. Cada usuário ganha uma VM segura dedicada na nuvem da Meta, com um navegador Chromium que ele pode assistir e assumir. Plano grátis, US$ 20 e US$ 100/mês.</p></div>
+    <div class="card"><h3>🖥️ OpenMuse</h3><p>Resposta open source da CopilotKit, criada em 15/set/2026, licença MIT. Roda no seu servidor: app Expo (iOS/Android/web), API Hono, navegador via Playwright e computador Linux em Docker, ambos opcionais. Está em alfa.</p></div>
+    <div class="card"><h3>🔎 Esta análise</h3><p>Das afirmações do vídeo, a maioria se confirma. Há erros relevantes: o acordo de US$ 18 <strong>bilhões</strong> aparece uma vez como “milhões”, o banco “Pika Light” é o PGlite, e o OpenMuse depende sim de um serviço externo.</p></div>
+  </div>
+</div></section>
+
+<section id="comparacao"><div class="wrap">
+  <span class="chip">Comparação lado a lado</span>
+  <h2>Onde cada um ganha</h2>
+  <p class="sub">A diferença não está tanto nos recursos quanto em <strong>onde o agente e seus dados moram</strong> e em quanto trabalho a instalação exige.</p>
+  <div class="tbl"><table>
+    <thead><tr><th>Critério</th><th>☁️ Meta Muse</th><th>🖥️ OpenMuse</th></tr></thead>
+    <tbody>
+      <tr><td>Onde roda</td><td>VM dedicada (“Muse Secure VM”) na nuvem da Meta, mantida pela Meta</td><td>No seu notebook ou VPS; computador Linux em Docker opcional, sem root e sem montar pastas do host</td></tr>
+      <tr><td>Navegador</td><td>Chromium virtualizado e visível; você assume o controle quando quiser</td><td>Worker opcional com Playwright/Chromium, perfis persistentes e “takeover” da mesma sessão</td></tr>
+      <tr><td>Terminal / arquivos</td><td>Dentro da VM gerenciada</td><td>Container Docker opcional, limite de 30 s por comando, armazenamento persistente</td></tr>
+      <tr><td>Personalização e memória</td><td>Nome, avatar, tom; aprende com as conversas; “esqueça isso”</td><td>Perfil editável (nome, tom, avatar, memórias) guardado no seu banco</td></tr>
+      <tr><td>Onde ficam os dados</td><td>Nuvem da Meta; a Meta diz que não usa em anúncios</td><td>PGlite embutido (ou PostgreSQL) no seu servidor. Mas as conversas passam pelo CopilotKit Intelligence (serviço externo)</td></tr>
+      <tr><td>Integrações</td><td>E-mail e calendário; a Meta mira pagamentos e compras</td><td>Gmail e Google Calendar via OAuth (credenciais próprias). Saúde, banco e redes sociais só no roadmap</td></tr>
+      <tr><td>Voz e hardware</td><td>Voz em tempo real, voz criada por descrição, avatar “Jolly”, óculos Meta com palavra de ativação (Connect, 23/set)</td><td>Nada disso ainda; voz está no roadmap</td></tr>
+      <tr><td>Compras / dinheiro</td><td>Compra ingressos e produtos; agentes de checkout são a direção declarada</td><td>Finanças só leitura: importa CSV de transações e resume gastos. Não compra nem move dinheiro</td></tr>
+      <tr><td>Privacidade</td><td>Promessa: dados fora dos anúncios; “Muse Confidential VM” com chave só do usuário anunciada para o fim do ano</td><td>Você controla o host e as contas. Exceção: a persistência das conversas no CopilotKit Intelligence</td></tr>
+      <tr><td>Custo</td><td>Grátis + US$ 20 e US$ 100/mês</td><td>Código grátis (MIT); você paga hospedagem, o modelo de linguagem que conectar e o que o CopilotKit Intelligence cobrar</td></tr>
+      <tr><td>Código</td><td>Fechado, proprietário</td><td>MIT, 2.765★ e 351 forks em 28/09/2026</td></tr>
+      <tr><td>Instalação</td><td>Baixar o app ou abrir muse.ai e entrar</td><td>Node 24 + pnpm 11.19.0 + chave CopilotKit; ~6 comandos</td></tr>
+      <tr><td>Maturidade</td><td>Produto lançado nos EUA (iOS, Android, web)</td><td>Alfa declarado, “para self-hosting e para construir em cima”</td></tr>
+    </tbody>
+  </table></div>
+  <div class="note"><strong>O ponto que o vídeo não conta:</strong> o README do OpenMuse exige uma chave <code>CPK_INTELLIGENCE_API_KEY</code> “em todo modo”, para persistir e reproduzir as conversas. O CopilotKit Intelligence é um serviço separado e <strong>fica fora da licença MIT</strong>. O app de exemplo não precisa de modelo, conta Google nem Docker, mas também não é 100% independente de terceiros.</div>
+</div></section>
+
+<section id="validacoes"><div class="wrap">
+  <span class="chip">Validações · fontes primárias</span>
+  <h2>O que o vídeo acertou e o que não se sustenta</h2>
+  <p class="sub">Cada afirmação foi conferida no anúncio da Meta, na imprensa (TechCrunch, Axios, Washington Post) e no repositório do OpenMuse, lido direto pela API do GitHub em 28/09/2026.</p>
+  <div class="tbl"><table>
+    <thead><tr><th>Afirmação do vídeo</th><th>Status</th><th>O que as fontes dizem</th></tr></thead>
+    <tbody>
+      <tr><td>Muse lançado em 8/set/2026</td><td><span class="st ok">CONFIRMADO</span></td><td>“The world's first personal AI agent built for everyone”. <a href="https://about.fb.com/news/2026/09/introducing-muse-personal-ai-agent/" target="_blank" rel="noopener">Meta Newsroom</a></td></tr>
+      <tr><td>Computador dedicado na nuvem</td><td><span class="st ok">CONFIRMADO</span></td><td>O nome oficial é “Muse Secure VM” (o vídeo diz “Secure Machine”), com Chromium visível e controle manual. <a href="https://research.meta.ai/blog/security-and-safety-for-ai-agents-our-approach-with-muse" target="_blank" rel="noopener">Meta AI</a></td></tr>
+      <tr><td>Tênis, cinema, autorização de passeio</td><td><span class="st ok">CONFIRMADO</span></td><td>Os mesmos exemplos aparecem no anúncio oficial.</td></tr>
+      <tr><td>Dados fora dos anúncios; VM confidencial</td><td><span class="st ok">CONFIRMADO</span></td><td>A “Muse Confidential VM”, com chave só do usuário, está prometida para o fim do ano: é promessa, não recurso disponível.</td></tr>
+      <tr><td>Grátis + US$ 20 e US$ 100/mês</td><td><span class="st ok">CONFIRMADO</span></td><td>EUA, iOS, Android e muse.ai; óculos “em breve”. <a href="https://www.axios.com/2026/09/08/meta-debuts-muse-personal-ai-agent" target="_blank" rel="noopener">Axios</a></td></tr>
+      <tr><td>Connect: voz, “Jolly”, óculos</td><td><span class="st ok">CONFIRMADO</span></td><td>Meta Connect em 23/set/2026, 15 dias depois. <a href="https://techcrunch.com/2026/09/23/everything-new-coming-to-metas-ai-agent-muse/" target="_blank" rel="noopener">TechCrunch</a></td></tr>
+      <tr><td>Acordo de US$ 18 bi</td><td><span class="st warn">ERRO NO VÍDEO</span></td><td>São US$ 18 <strong>bilhões</strong> (29 estados, 26/ago/2026). Num trecho o vídeo fala em “18 milhões”. <a href="https://techcrunch.com/2026/08/26/meta-settles-for-18-billion-in-lawsuit-brought-by-29-states-over-social-media-harms-to-children/" target="_blank" rel="noopener">TechCrunch</a></td></tr>
+      <tr><td>Muse pede acesso a saúde e pagamentos</td><td><span class="st warn">NÃO VERIFICADO</span></td><td>E-mail e calendário aparecem na cobertura. Não achamos fonte primária listando saúde e pagamentos como permissões.</td></tr>
+      <tr><td>OpenMuse é MIT, da CopilotKit</td><td><span class="st ok">CONFIRMADO</span></td><td><a href="https://github.com/CopilotKit/openmuse" target="_blank" rel="noopener">CopilotKit/openmuse</a>, criado em 15/set/2026.</td></tr>
+      <tr><td>2.100★, 230 forks, 22 branches</td><td><span class="st warn">DESATUALIZADO</span></td><td>Em 28/09/2026: 2.765★, 351 forks, 22 branches, 54 commits. O repositório cresceu depois da gravação.</td></tr>
+      <tr><td>Sucessor do “Open Bot”</td><td><span class="st ok">CONFIRMADO</span></td><td><a href="https://github.com/CopilotKit/openbot" target="_blank" rel="noopener">CopilotKit/OpenBot</a>. O adaptador OpenBot existe no código, mas vem desativado.</td></tr>
+      <tr><td>Stack (Expo, Hono, Playwright, Docker)</td><td><span class="st ok">CONFIRMADO</span></td><td>Bate com o README, incluindo leases SQL, container sem root e limite de 30 s.</td></tr>
+      <tr><td>Banco “Pika Light”</td><td><span class="st warn">TRANSCRIÇÃO</span></td><td>É o <strong>PGlite</strong> (<code>@electric-sql/pglite</code>), com opção de PostgreSQL.</td></tr>
+      <tr><td>Recursos (Ideas, metas, PDF, finanças, Gmail)</td><td><span class="st ok">CONFIRMADO</span></td><td>A tabela de recursos do README bate item a item.</td></tr>
+      <tr><td>Alfa; saúde, banco e voz no roadmap</td><td><span class="st ok">CONFIRMADO</span></td><td>O roadmap também inclui ferramentas executáveis geradas pelo agente e reservas/pagamentos automáticos.</td></tr>
+      <tr><td>Node 24 + pnpm 11.19.0, “4 comandos”</td><td><span class="st warn">PARCIAL</span></td><td>O pnpm confere. O README pede Node 24 LTS (o <code>package.json</code> aceita ≥22). O quickstart tem 6 comandos, incluindo o login no CopilotKit.</td></tr>
+      <tr><td>“Nenhum serviço externo” no básico</td><td><span class="st bad">DIVERGENTE</span></td><td>Modelo, Google e Docker são dispensáveis, mas a chave do CopilotKit Intelligence é obrigatória em todo modo.</td></tr>
+    </tbody>
+  </table></div>
+</div></section>
+
+<section id="guia"><div class="wrap">
+  <span class="chip">Guia de uso · passo a passo</span>
+  <h2>Rodar o OpenMuse na sua máquina</h2>
+  <p class="sub">Comandos tirados do README oficial (28/09/2026). Como o projeto está em alfa, confira o repositório antes, porque os passos podem mudar.</p>
+
+  <div class="step"><div class="b">1</div><div>
+    <h3>Pré-requisitos</h3>
+    <p>Node 24 LTS, pnpm 11.19.0 e uma conta no CopilotKit, necessária para a chave do Intelligence.</p>
+<pre><span class="k">node</span> -v              <span class="c"># v24.x</span>
+<span class="k">corepack enable</span> && <span class="k">corepack prepare</span> pnpm@11.19.0 --activate</pre>
+  </div></div>
+
+  <div class="step"><div class="b">2</div><div>
+    <h3>Clonar e instalar</h3>
+    <p>Instale com o lockfile travado para reproduzir exatamente as versões do projeto.</p>
+<pre><span class="k">git clone</span> <span class="s">https://github.com/CopilotKit/OpenMuse.git</span> openmuse
+<span class="k">cd</span> openmuse
+<span class="k">pnpm install</span> --frozen-lockfile
+<span class="k">cp</span> .env.example .env</pre>
+  </div></div>
+
+  <div class="step"><div class="b">3</div><div>
+    <h3>Gerar a chave do CopilotKit Intelligence</h3>
+    <p>Este é o passo que o vídeo omite. A chave fica só no servidor, no <code>.env</code>.</p>
+<pre><span class="k">npx</span> copilotkit@latest login
+<span class="k">npx</span> copilotkit@latest project select
+<span class="c"># cole a chave gerada em .env:  CPK_INTELLIGENCE_API_KEY=...</span></pre>
+  </div></div>
+
+  <div class="step"><div class="b">4</div><div>
+    <h3>Subir a API e o app web</h3>
+    <p>São dois terminais. O app de exemplo roda sem modelo, sem conta Google e sem Docker.</p>
+<pre><span class="k">pnpm dev</span>        <span class="c"># terminal 1: API + worker de tarefas</span>
+<span class="k">pnpm dev:web</span>    <span class="c"># terminal 2: interface web</span></pre>
+  </div></div>
+
+  <div class="step"><div class="b">5</div><div>
+    <h3>Testar as demos locais</h3>
+    <p>Três demos usam uma caixa de entrada de teste, sem tocar em nada real: preencher uma autorização de passeio (gera o PDF e rascunha a resposta), criar uma meta que monitora uma página e importar transações de exemplo para ver o resumo de gastos.</p>
+  </div></div>
+
+  <div class="step"><div class="b">6</div><div>
+    <h3>Opcional: navegador e computador próprios</h3>
+    <p>O navegador real exige Chromium e um token que protege a conexão. O computador Linux roda em Docker.</p>
+<pre><span class="k">pnpm dev:browser</span>                 <span class="c"># worker Playwright/Chromium</span>
+<span class="k">COMPUTER_ENABLED=true pnpm dev</span>   <span class="c"># liga o computador Linux em Docker</span></pre>
+  </div></div>
+
+  <div class="step"><div class="b">7</div><div>
+    <h3>Opcional: Gmail e Calendar de verdade</h3>
+    <p>Em <code>.env</code>: <code>WORKSPACE_MODE=live</code>, <code>OPENMUSE_ACCESS_KEY</code> (24+ caracteres aleatórios) e <code>TOKEN_ENCRYPTION_KEY</code> (32 bytes em base64), mais as credenciais OAuth do Google. Depois, reinicie a API.</p>
+<pre><span class="k">openssl rand</span> -base64 32   <span class="c"># valor para TOKEN_ENCRYPTION_KEY</span></pre>
+  </div></div>
+</div></section>
+
+<section id="veredito"><div class="wrap">
+  <span class="chip">Veredito</span>
+  <h2>Qual faz sentido pra você</h2>
+  <p class="sub">A conclusão do vídeo se sustenta: o OpenMuse iguala a <strong>ideia central</strong> do Muse, mas ainda não o acabamento nem o alcance.</p>
+  <div class="grid g2">
+    <div class="card"><h3>☁️ Escolha o Muse se…</h3><ul>
+      <li>quer abrir o app e usar, sem configurar nada;</li>
+      <li>precisa de voz, óculos Meta ou compras de verdade;</li>
+      <li>aceita dar à Meta acesso a e-mail e calendário em troca da conveniência.</li>
+    </ul></div>
+    <div class="card"><h3>🖥️ Escolha o OpenMuse se…</h3><ul>
+      <li>quer os dados no seu próprio servidor;</li>
+      <li>quer ler, mudar e estender o código (MIT);</li>
+      <li>topa lidar com alfa, <code>.env</code>, Docker e a chave do CopilotKit.</li>
+    </ul></div>
+  </div>
+  <div class="note"><strong>“Grátis” não quer dizer “sem esforço”.</strong> O custo sai do cartão e vai para o terminal: hospedagem, a chave do modelo que você conectar e a manutenção de um projeto que ainda muda toda semana.</div>
+</div></section>
+
+<section id="roadmap"><div class="wrap">
+  <span class="chip">Linha do tempo e roadmap</span>
+  <h2>Três semanas entre o anúncio e a alternativa aberta</h2>
+  <p class="sub">Datas conferidas nas fontes. A última linha é o roadmap declarado do OpenMuse, ou seja, intenção, não entrega.</p>
+  <div class="phase"><div class="tag">26/ago</div><div class="d"><strong>Acordo de US$ 18 bi</strong><span>A Meta fecha acordo com 29 estados dos EUA por danos de redes sociais a crianças.</span></div></div>
+  <div class="phase"><div class="tag">08/set</div><div class="d"><strong>Meta lança o Muse</strong><span>VM segura dedicada, navegador visível, planos grátis, de US$ 20 e de US$ 100. Só nos EUA.</span></div></div>
+  <div class="phase"><div class="tag">15/set</div><div class="d"><strong>Nasce o CopilotKit/openmuse</strong><span>Repositório MIT, sucessor do OpenBot, declaradamente inspirado no Muse.</span></div></div>
+  <div class="phase"><div class="tag">23/set</div><div class="d"><strong>Meta Connect 2026</strong><span>Voz em tempo real, voz por descrição, avatar Jolly e integração com os óculos por palavra de ativação.</span></div></div>
+  <div class="phase"><div class="tag">28/set</div><div class="d"><strong>Esta checagem</strong><span>OpenMuse com 2.765★, 351 forks e 54 commits, ainda em alfa.</span></div></div>
+  <div class="phase"><div class="tag">Futuro</div><div class="d"><strong>Roadmap do OpenMuse</strong><span>Conectores de saúde, banco e redes sociais, push no aparelho, voz, ferramentas executáveis geradas pelo agente e reservas/pagamentos automáticos.</span></div></div>
+</div></section>
+
+<section id="fontes"><div class="wrap">
+  <span class="chip">Fontes</span>
+  <h2>Referências usadas</h2>
+  <p class="sub">A lista completa, com o status de cada afirmação, está em <a href="https://github.com/inematds/openmuse-vs-muse/blob/main/docs/VALIDACAO.md" target="_blank" rel="noopener">docs/VALIDACAO.md</a> no repositório.</p>
+  <ul class="src">
+    <li><a href="https://www.youtube.com/watch?v=cDTkWh_W-4k" target="_blank" rel="noopener">Vídeo analisado (YouTube)</a></li>
+    <li><a href="https://about.fb.com/news/2026/09/introducing-muse-personal-ai-agent/" target="_blank" rel="noopener">Meta: Introducing Muse</a></li>
+    <li><a href="https://research.meta.ai/blog/security-and-safety-for-ai-agents-our-approach-with-muse" target="_blank" rel="noopener">Meta AI: segurança e privacidade do Muse</a></li>
+    <li><a href="https://about.fb.com/news/2026/09/the-biggest-news-from-connect-2026/" target="_blank" rel="noopener">Meta: novidades do Connect 2026</a></li>
+    <li><a href="https://techcrunch.com/2026/09/08/meta-debuts-its-muse-ai-agent-will-consumers-trust-it/" target="_blank" rel="noopener">TechCrunch: lançamento do Muse</a></li>
+    <li><a href="https://techcrunch.com/2026/09/23/everything-new-coming-to-metas-ai-agent-muse/" target="_blank" rel="noopener">TechCrunch: Muse no Connect</a></li>
+    <li><a href="https://www.axios.com/2026/09/08/meta-debuts-muse-personal-ai-agent" target="_blank" rel="noopener">Axios: preços e disponibilidade</a></li>
+    <li><a href="https://techcrunch.com/2026/08/26/meta-settles-for-18-billion-in-lawsuit-brought-by-29-states-over-social-media-harms-to-children/" target="_blank" rel="noopener">TechCrunch: acordo de US$ 18 bi</a></li>
+    <li><a href="https://www.washingtonpost.com/technology/2026/08/26/meta-pay-up-18b-settle-lawsuit-alleging-social-media-harm-children/" target="_blank" rel="noopener">Washington Post: acordo de US$ 18 bi</a></li>
+    <li><a href="https://github.com/CopilotKit/openmuse" target="_blank" rel="noopener">GitHub: CopilotKit/openmuse</a></li>
+    <li><a href="https://github.com/CopilotKit/openbot" target="_blank" rel="noopener">GitHub: CopilotKit/OpenBot</a></li>
+  </ul>
+</div></section>
+
+<footer>
+  <div class="wrap">
+    <div class="pill">Meta Muse</div><div class="pill">OpenMuse · MIT</div><div class="pill">CopilotKit</div><div class="pill">Agentes de IA</div>
+    <p style="margin-top:18px">Muse × OpenMuse · análise independente, fatos checados em 28/09/2026 ·
+      <a href="https://github.com/inematds/openmuse-vs-muse">inematds/openmuse-vs-muse</a> ·
+      <a href="https://inema.club">INEMA.CLUB</a></p>
+  </div>
+</footer>
+
+<script>
+  (function(){
+    var KEY='openmuse-vs-muse-theme';
+    var b=document.body, t=document.getElementById('themeToggle');
+    try{ if(localStorage.getItem(KEY)==='light'){ b.classList.add('light'); t.textContent='☀️'; } }catch(e){}
+    t.addEventListener('click',function(){
+      var light=b.classList.toggle('light');
+      t.textContent=light?'☀️':'🌙';
+      try{ localStorage.setItem(KEY, light?'light':'dark'); }catch(e){}
+    });
+  })();
+</script>
+</body>
+</html>
