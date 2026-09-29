@@ -15,17 +15,17 @@ Página completa (comparação, validações e como rodar o OpenMuse): **https:/
 ## Conteúdo
 
 - [`guia/`](guia/): landing + guia em PT, [EN](guia/en/) e [ES](guia/es/).
-- [`docs/VALIDACAO.md`](docs/VALIDACAO.md): tabela com todas as afirmações do vídeo, o status de cada uma e a fonte.
+- [`docs/VALIDACAO.md`](docs/VALIDACAO.md): tabela com todas as afirmações que circulam nas redes, o status de cada uma e a fonte.
 
 ## Principais achados
 
-- A maior parte do vídeo se confirma: lançamento, VM dedicada, preços (grátis, US$ 20 e US$ 100), novidades do Connect e a stack do OpenMuse.
-- O acordo da Meta com 29 estados foi de US$ 18 **bilhões**. Num trecho o vídeo fala em “milhões”.
-- O banco “Pika Light” citado no vídeo é o **PGlite**.
-- O OpenMuse **exige uma chave do CopilotKit Intelligence em todo modo**. É um serviço externo, fora da licença MIT, e o vídeo não menciona isso.
-- Números do repositório em 28/09/2026: 2.765★ e 351 forks. O vídeo cita 2.100★ e 230 forks.
+- A maior parte do que circula se confirma: lançamento, VM dedicada, preços (grátis, US$ 20 e US$ 100), novidades do Connect e a stack do OpenMuse.
+- O acordo da Meta com 29 estados foi de US$ 18 **bilhões**. Há quem cite “milhões”.
+- O banco citado como “Pika Light” é o **PGlite**.
+- O OpenMuse **exige uma chave do CopilotKit Intelligence em todo modo**. É um serviço externo, fora da licença MIT, e isso quase nunca é mencionado.
+- Números do repositório em 28/09/2026: 2.765★ e 351 forks. Circulam números defasados (2.100★ e 230 forks).
 
-Fonte analisada: [vídeo no YouTube](https://www.youtube.com/watch?v=cDTkWh_W-4k) · Repositório comparado: [CopilotKit/openmuse](https://github.com/CopilotKit/openmuse)
+Repositório comparado: [CopilotKit/openmuse](https://github.com/CopilotKit/openmuse)
 
 ---
 

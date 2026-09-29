@@ -1,16 +1,17 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Muse × OpenMuse — personal AI agent: Meta's cloud or your own server</title>
-<meta name="description" content="Full comparison between Meta Muse and OpenMuse (CopilotKit, MIT): where it runs, browser, memory, integrations, privacy and cost — with every claim checked against primary sources.">
-<link rel="alternate" hreflang="pt-BR" href="https://inematds.github.io/openmuse-vs-muse/guia/">
-<link rel="alternate" hreflang="en" href="https://inematds.github.io/openmuse-vs-muse/guia/en/">
-<link rel="alternate" hreflang="es" href="https://inematds.github.io/openmuse-vs-muse/guia/es/">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>Muse × OpenMuse — personal AI agent: Meta’s cloud or your server</title>
+<meta content="Complete comparison of Meta Muse and OpenMuse (CopilotKit, MIT): where they run, browser, memory, integrations, privacy, and cost — with every claim checked against a primary source." name="description"/>
+
+
+
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;800&amp;family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;600&amp;display=swap" rel="stylesheet"/>
 <style>
   :root{
     --bg:#0c0c10; --bg2:#14141b; --card:#16161e; --line:#272730;
@@ -93,7 +94,7 @@
   .phase .d span{color:var(--mut);font-size:.92rem}
   footer{padding:46px 0;text-align:center;color:var(--mut);font-size:.9rem}
   .pill{display:inline-block;border:1px solid var(--line);border-radius:999px;padding:.3em .8em;font-size:.78rem;color:var(--mut);margin:4px}
-  /* comparison and validation tables */
+  /* tabelas de comparacao e validacao */
   .tbl{overflow-x:auto;border:1px solid var(--line);border-radius:14px}
   table{width:100%;border-collapse:collapse;font-size:.9rem;min-width:640px}
   th,td{text-align:left;vertical-align:top;padding:12px 14px;border-bottom:1px solid var(--line)}
@@ -111,223 +112,204 @@
   .src li{margin-bottom:.4em;break-inside:avoid}
   @media(max-width:680px){.src{columns:1}}
 </style>
-</head>
+<link href="https://inematds.github.io/openmuse-vs-muse/guia/" hreflang="pt-BR" rel="alternate"/><link href="https://inematds.github.io/openmuse-vs-muse/guia/en/" hreflang="en" rel="alternate"/><link href="https://inematds.github.io/openmuse-vs-muse/guia/es/" hreflang="es" rel="alternate"/></head>
 <body>
-
 <nav><div class="wrap">
-  <a class="brand" href="#top"><span class="emoji">🤖</span> Muse × OpenMuse</a>
-  <span class="sep">|</span>
-  <span class="clubpro">
-    <a class="inema" href="https://inema.club" target="_blank" rel="noopener">INEMA.CLUB</a>
-    <span class="sep">-</span>
-    <a class="pro" href="https://inema.pro" target="_blank" rel="noopener">PRO</a>
-  </span>
-  <div class="links">
-    <a class="sec" href="#oque">What it is</a>
-    <a class="sec" href="#comparacao">Comparison</a>
-    <a class="sec" href="#validacoes">Fact checks</a>
-    <a class="sec" href="#guia">Run OpenMuse</a>
-    <a class="sec" href="#veredito">Verdict</a>
-    <span class="lang"><a href="../">PT</a><a class="on" href="./">EN</a><a href="../es/">ES</a></span>
-    <button class="tgl" id="themeToggle" aria-label="Toggle theme" title="Toggle theme">🌙</button>
-    <a class="btn" href="https://github.com/inematds/openmuse-vs-muse" target="_blank" rel="noopener">GitHub</a>
-  </div>
+<a class="brand" href="#top"><span class="emoji">🤖</span> Muse × OpenMuse</a>
+<span class="sep">|</span>
+<span class="clubpro">
+<a class="inema" href="https://inema.club" rel="noopener" target="_blank">INEMA.CLUB</a>
+<span class="sep">-</span>
+<a class="pro" href="https://inema.pro" rel="noopener" target="_blank">PRO</a>
+</span>
+<div class="links">
+<a class="sec" href="#oque">What it is</a>
+<a class="sec" href="#comparacao">Comparison</a>
+<a class="sec" href="#validacoes">Validations</a>
+<a class="sec" href="#guia">Run OpenMuse</a>
+<a class="sec" href="#veredito">Verdict</a>
+<span class="lang"><a class="on" href="./">EN</a><a class="on" href="./">EN</a><a href="../es/">ES</a></span>
+<button aria-label="Toggle theme" class="tgl" id="themeToggle" title="Toggle theme">🌙</button>
+<a class="btn" href="https://github.com/inematds/openmuse-vs-muse" rel="noopener" target="_blank">GitHub</a>
+</div>
 </div></nav>
-
 <header class="hero" id="top">
-  <div class="glow"></div>
-  <div class="wrap">
-    <div>
-      <span class="chip">Comparative analysis · facts checked Sep 28, 2026</span>
-      <h1>Your AI agent: in Meta's cloud or on <span class="amb">your own server</span>?</h1>
-      <p class="lead">Meta Muse and OpenMuse (CopilotKit, MIT license) promise the same idea: an agent with its own computer and browser, which you watch work. We compared them point by point and checked every claim against a primary source.</p>
-      <div class="cta">
-        <a class="btn" href="#comparacao">See the comparison</a>
-        <a class="btn ghost" href="#validacoes">What was verified</a>
-      </div>
-    </div>
-    <figure><img src="../assets/banner.jpg" alt="Muse × OpenMuse banner: personal AI agent in Meta's cloud or on your own server"></figure>
-  </div>
+<div class="glow"></div>
+<div class="wrap">
+<div>
+<span class="chip">Comparative analysis · facts checked on 09/28/2026</span>
+<h1>Your AI agent: in Meta’s cloud or on the <span class="amb">your server</span>?</h1>
+<p class="lead">Meta Muse and OpenMuse (CopilotKit, MIT license) promise the same idea: an agent with its own computer and browser that you can watch work. We compare them point by point and check every claim against primary sources.</p>
+<div class="cta">
+<a class="btn" href="#comparacao">View the comparison</a>
+<a class="btn ghost" href="#validacoes">What was validated</a>
+</div>
+</div>
+<figure><img alt="Muse × OpenMuse banner: Meta's cloud-based personal AI agent or one on your server" src="../assets/banner.jpg"/></figure>
+</div>
 </header>
-
 <section id="oque"><div class="wrap">
-  <span class="chip">What it is</span>
-  <h2>Two agents, the same core idea</h2>
-  <p class="sub">This page starts from a comparison video published on YouTube (in German) and checks its claims against Meta's official announcement, press coverage, and OpenMuse's own code on GitHub.</p>
-  <div class="grid g3">
-    <div class="card"><h3>☁️ Meta Muse</h3><p>Personal agent launched by Meta on Sep 8, 2026. Every user gets a dedicated secure VM in Meta's cloud, with a Chromium browser they can watch and take over. Free, $20 and $100/month plans.</p></div>
-    <div class="card"><h3>🖥️ OpenMuse</h3><p>CopilotKit's open source answer, created Sep 15, 2026, MIT license. Runs on your own server: Expo app (iOS/Android/web), Hono API, a Playwright-driven browser and a Linux computer in Docker, both optional. It's in alpha.</p></div>
-    <div class="card"><h3>🔎 This analysis</h3><p>Most of the video's claims hold up. There are notable errors: the $18 <strong>billion</strong> settlement is stated once as "million," the "Pika Light" database is actually PGlite, and OpenMuse does depend on an external service.</p></div>
-  </div>
+<span class="chip">What it is</span>
+<h2>Two agents, the same central idea</h2>
+<p class="sub">This page brings together claims circulating on social media about Muse and OpenMuse and checks each one against Meta’s official announcement, press coverage, and OpenMuse’s own code on GitHub.</p>
+<div class="grid g3">
+<div class="card"><h3>☁️ Meta Muse</h3><p>Personal agent launched by Meta on Sep 8, 2026. Each user gets a dedicated secure VM in Meta's cloud, with a Chromium browser they can watch and take over. Free, $20, and $100/month plans.</p></div>
+<div class="card"><h3>🖥️ OpenMuse</h3><p>Open-source response from CopilotKit, created on 15/Sep/2026, MIT license. Runs on your server: Expo app (iOS/Android/web), Hono API, browser via Playwright, and Linux computer in Docker, both optional. It’s in alpha.</p></div>
+<div class="card"><h3>🔎 This analysis</h3><p>Most of the claims circulating check out. There are significant errors: the US$ 18 deal <strong>billion</strong> sometimes appears as “millions,” the database cited as “Pika Light” is PGlite, and OpenMuse does depend on an external service.</p></div>
+</div>
 </div></section>
-
 <section id="comparacao"><div class="wrap">
-  <span class="chip">Side-by-side comparison</span>
-  <h2>Where each one wins</h2>
-  <p class="sub">The difference isn't so much about features as about <strong>where the agent and its data live</strong> and how much setup work is required.</p>
-  <div class="tbl"><table>
-    <thead><tr><th>Criterion</th><th>☁️ Meta Muse</th><th>🖥️ OpenMuse</th></tr></thead>
-    <tbody>
-      <tr><td>Where it runs</td><td>Dedicated VM ("Muse Secure VM") in Meta's cloud, maintained by Meta</td><td>On your own laptop or VPS; optional Linux computer in Docker, no root and no mounting host folders</td></tr>
-      <tr><td>Browser</td><td>Virtualized, visible Chromium; you take control whenever you want</td><td>Optional worker with Playwright/Chromium, persistent profiles and "takeover" of the same session</td></tr>
-      <tr><td>Terminal / files</td><td>Inside the managed VM</td><td>Optional Docker container, 30 s command limit, persistent storage</td></tr>
-      <tr><td>Personalization and memory</td><td>Name, avatar, tone; learns from conversations; "forget this"</td><td>Editable profile (name, tone, avatar, memories) stored in your database</td></tr>
-      <tr><td>Where data lives</td><td>Meta's cloud; Meta says it isn't used for ads</td><td>Embedded PGlite (or PostgreSQL) on your server. But conversations pass through CopilotKit Intelligence (an external service)</td></tr>
-      <tr><td>Integrations</td><td>Email and calendar; Meta is aiming at payments and purchases</td><td>Gmail and Google Calendar via OAuth (your own credentials). Health, banking and social media are only on the roadmap</td></tr>
-      <tr><td>Voice and hardware</td><td>Real-time voice, voice created from a description, "Jolly" avatar, Meta glasses with a wake word (Connect, Sep 23)</td><td>None of this yet; voice is on the roadmap</td></tr>
-      <tr><td>Shopping / money</td><td>Buys tickets and products; checkout agents are the stated direction</td><td>Finance is read-only: imports a transactions CSV and summarizes spending. Doesn't buy or move money</td></tr>
-      <tr><td>Privacy</td><td>Promise: data kept out of ads; a "Muse Confidential VM" with a user-only key announced for the end of the year</td><td>You control the host and the accounts. Exception: conversation persistence via CopilotKit Intelligence</td></tr>
-      <tr><td>Cost</td><td>Free + $20 and $100/month</td><td>Code is free (MIT); you pay for hosting, whatever language model you connect, and whatever CopilotKit Intelligence charges</td></tr>
-      <tr><td>Code</td><td>Closed, proprietary</td><td>MIT, 2,765★ and 351 forks as of Sep 28, 2026</td></tr>
-      <tr><td>Installation</td><td>Download the app or open muse.ai and sign in</td><td>Node 24 + pnpm 11.19.0 + a CopilotKit key; ~6 commands</td></tr>
-      <tr><td>Maturity</td><td>Shipped product in the US (iOS, Android, web)</td><td>Declared alpha, "for self-hosting and building on top of"</td></tr>
-    </tbody>
-  </table></div>
-  <div class="note"><strong>What the video leaves out:</strong> the OpenMuse README requires a <code>CPK_INTELLIGENCE_API_KEY</code> "in every mode," to persist and replay conversations. CopilotKit Intelligence is a separate service and <strong>falls outside the MIT license</strong>. The sample app doesn't need a model, a Google account, or Docker, but it's not 100% independent of third parties either.</div>
+<span class="chip">Side-by-side comparison</span>
+<h2>Where each one wins</h2>
+<p class="sub">The difference lies less in the features than in <strong>where the agent and its data live</strong> and how much work installation requires.</p>
+<div class="tbl"><table>
+<thead><tr><th>Criterion</th><th>☁️ Meta Muse</th><th>🖥️ OpenMuse</th></tr></thead>
+<tbody>
+<tr><td>Where it runs</td><td>Dedicated VM (“Muse Secure VM”) in Meta’s cloud, maintained by Meta</td><td>On your laptop or VPS; optional Linux computer in Docker, without root or mounting host folders</td></tr>
+<tr><td>Browser</td><td>Virtualized, visible Chromium; take control whenever you want</td><td>Optional worker with Playwright/Chromium, persistent profiles, and “takeover” of the same session</td></tr>
+<tr><td>Terminal / files</td><td>Inside the managed VM</td><td>Optional Docker container, 30-second command limit, persistent storage</td></tr>
+<tr><td>Personalization and memory</td><td>Name, avatar, tone; learns from conversations; “forget this”</td><td>Editable profile (name, tone, avatar, memories) stored in your database</td></tr>
+<tr><td>Where the data is stored</td><td>Meta’s cloud; Meta says it doesn’t use it for ads</td><td>PGlite embedded (or PostgreSQL) on your server. But conversations go through CopilotKit Intelligence (an external service)</td></tr>
+<tr><td>Integrations</td><td>Email and calendar; Meta is targeting payments and shopping</td><td>Gmail and Google Calendar via OAuth (your own credentials). Health, banking, and social media are only on the roadmap</td></tr>
+<tr><td>Voice and hardware</td><td>Real-time voice, voice created from a description, “Jolly” avatar, Meta glasses with a wake word (Connect, 23/Sep)</td><td>None of that yet; voice is on the roadmap</td></tr>
+<tr><td>Shopping / money</td><td>Buys tickets and products; checkout agents are the stated direction</td><td>Read-only finance: imports transaction CSVs and summarizes spending. It doesn’t buy or move money</td></tr>
+<tr><td>Privacy</td><td>Promise: data stays out of ads; “Muse Confidential VM” with a key only the user holds, announced for the end of the year</td><td>You control the host and accounts. Exception: conversation persistence in CopilotKit Intelligence</td></tr>
+<tr><td>Cost</td><td>Free + US$ 20 and US$ 100/month</td><td>Free code (MIT); you pay for hosting, the language model you connect, and any charges from CopilotKit Intelligence</td></tr>
+<tr><td>Code</td><td>Closed, proprietary</td><td>MIT, 2,765★, and 351 forks as of 09/28/2026</td></tr>
+<tr><td>Installation</td><td>Download the app or go to muse.ai and sign in</td><td>Node 24 + pnpm 11.19.0 + CopilotKit key; ~6 commands</td></tr>
+<tr><td>Maturity</td><td>Product launched in the U.S. (iOS, Android, web)</td><td>Declared alpha, “for self-hosting and building on top of”</td></tr>
+</tbody>
+</table></div>
+<div class="note"><strong>The point almost nobody mentions:</strong> the OpenMuse README requires a key <code>CPK_INTELLIGENCE_API_KEY</code> “in every mode,” to persist and replay conversations. CopilotKit Intelligence is a separate service and <strong>is outside the MIT license</strong>. The sample app doesn't need a model, Google account, or Docker, but it also isn't 100% independent of third parties.</div>
 </div></section>
-
 <section id="validacoes"><div class="wrap">
-  <span class="chip">Fact checks · primary sources</span>
-  <h2>What the video got right and what doesn't hold up</h2>
-  <p class="sub">Every claim was checked against Meta's announcement, the press (TechCrunch, Axios, Washington Post), and the OpenMuse repository, read directly via the GitHub API on Sep 28, 2026.</p>
-  <div class="tbl"><table>
-    <thead><tr><th>Video claim</th><th>Status</th><th>What the sources say</th></tr></thead>
-    <tbody>
-      <tr><td>Muse launched Sep 8, 2026</td><td><span class="st ok">CONFIRMED</span></td><td>"The world's first personal AI agent built for everyone." <a href="https://about.fb.com/news/2026/09/introducing-muse-personal-ai-agent/" target="_blank" rel="noopener">Meta Newsroom</a></td></tr>
-      <tr><td>Dedicated computer in the cloud</td><td><span class="st ok">CONFIRMED</span></td><td>The official name is "Muse Secure VM" (the video says "Secure Machine"), with a visible Chromium and manual takeover. <a href="https://research.meta.ai/blog/security-and-safety-for-ai-agents-our-approach-with-muse" target="_blank" rel="noopener">Meta AI</a></td></tr>
-      <tr><td>Sneakers, movies, an outing permission slip</td><td><span class="st ok">CONFIRMED</span></td><td>The same examples appear in the official announcement.</td></tr>
-      <tr><td>Data kept out of ads; confidential VM</td><td><span class="st ok">CONFIRMED</span></td><td>The "Muse Confidential VM," with a user-only key, is promised for the end of the year: it's a promise, not an available feature.</td></tr>
-      <tr><td>Free + $20 and $100/month</td><td><span class="st ok">CONFIRMED</span></td><td>US only, iOS, Android and muse.ai; glasses "coming soon." <a href="https://www.axios.com/2026/09/08/meta-debuts-muse-personal-ai-agent" target="_blank" rel="noopener">Axios</a></td></tr>
-      <tr><td>Connect: voice, "Jolly," glasses</td><td><span class="st ok">CONFIRMED</span></td><td>Meta Connect on Sep 23, 2026, 15 days later. <a href="https://techcrunch.com/2026/09/23/everything-new-coming-to-metas-ai-agent-muse/" target="_blank" rel="noopener">TechCrunch</a></td></tr>
-      <tr><td>$18B settlement</td><td><span class="st warn">VIDEO ERROR</span></td><td>It's $18 <strong>billion</strong> (29 states, Aug 26, 2026). At one point the video says "$18 million." <a href="https://techcrunch.com/2026/08/26/meta-settles-for-18-billion-in-lawsuit-brought-by-29-states-over-social-media-harms-to-children/" target="_blank" rel="noopener">TechCrunch</a></td></tr>
-      <tr><td>Muse requests access to health and payments</td><td><span class="st warn">UNVERIFIED</span></td><td>Email and calendar show up in coverage. We found no primary source listing health and payments as permissions.</td></tr>
-      <tr><td>OpenMuse is MIT, by CopilotKit</td><td><span class="st ok">CONFIRMED</span></td><td><a href="https://github.com/CopilotKit/openmuse" target="_blank" rel="noopener">CopilotKit/openmuse</a>, created Sep 15, 2026.</td></tr>
-      <tr><td>2,100★, 230 forks, 22 branches</td><td><span class="st warn">OUTDATED</span></td><td>As of Sep 28, 2026: 2,765★, 351 forks, 22 branches, 54 commits. The repo grew after the video was recorded.</td></tr>
-      <tr><td>Successor to "Open Bot"</td><td><span class="st ok">CONFIRMED</span></td><td><a href="https://github.com/CopilotKit/openbot" target="_blank" rel="noopener">CopilotKit/OpenBot</a>. The OpenBot adapter exists in the code but ships disabled.</td></tr>
-      <tr><td>Stack (Expo, Hono, Playwright, Docker)</td><td><span class="st ok">CONFIRMED</span></td><td>Matches the README, including SQL leases, a rootless container and the 30 s limit.</td></tr>
-      <tr><td>"Pika Light" database</td><td><span class="st warn">TRANSCRIPTION</span></td><td>It's <strong>PGlite</strong> (<code>@electric-sql/pglite</code>), with a PostgreSQL option.</td></tr>
-      <tr><td>Features (Ideas, goals, PDF, finance, Gmail)</td><td><span class="st ok">CONFIRMED</span></td><td>The README's feature table matches item by item.</td></tr>
-      <tr><td>Alpha; health, banking and voice on the roadmap</td><td><span class="st ok">CONFIRMED</span></td><td>The roadmap also includes agent-generated executable tools and automatic bookings/payments.</td></tr>
-      <tr><td>Node 24 + pnpm 11.19.0, "4 commands"</td><td><span class="st warn">PARTIAL</span></td><td>pnpm checks out. The README asks for Node 24 LTS (<code>package.json</code> accepts ≥22). The quickstart has 6 commands, including the CopilotKit login.</td></tr>
-      <tr><td>"No external service" in the basic setup</td><td><span class="st bad">CONTRADICTED</span></td><td>The model, Google, and Docker are optional, but the CopilotKit Intelligence key is required in every mode.</td></tr>
-    </tbody>
-  </table></div>
+<span class="chip">Validations · primary sources</span>
+<h2>What checks out and what doesn’t hold up</h2>
+<p class="sub">Each claim was checked against Meta's announcement, the press (TechCrunch, Axios, Washington Post), and the OpenMuse repository, read directly through the GitHub API on 09/28/2026.</p>
+<div class="tbl"><table>
+<thead><tr><th>What’s circulating on social media</th><th>Status</th><th>What the sources say</th></tr></thead>
+<tbody>
+<tr><td>Muse launched on 8/Sep/2026</td><td><span class="st ok">CONFIRMED</span></td><td>“The world's first personal AI agent built for everyone”. <a href="https://about.fb.com/news/2026/09/introducing-muse-personal-ai-agent/" rel="noopener" target="_blank">Meta Newsroom</a></td></tr>
+<tr><td>Dedicated computer in the cloud</td><td><span class="st ok">CONFIRMED</span></td><td>The official name is “Muse Secure VM” (also called “Secure Machine”), with visible Chromium and manual control. <a href="https://research.meta.ai/blog/security-and-safety-for-ai-agents-our-approach-with-muse" rel="noopener" target="_blank">Meta AI</a></td></tr>
+<tr><td>Sneakers, movie theater, trip permission form</td><td><span class="st ok">CONFIRMED</span></td><td>The same examples appear in the official announcement.</td></tr>
+<tr><td>Data outside the ads; confidential VM</td><td><span class="st ok">CONFIRMED</span></td><td>“Muse Confidential VM,” with a key only the user controls, is promised for the end of the year: it's a promise, not an available feature.</td></tr>
+<tr><td>Free + US$ 20 and US$ 100/month</td><td><span class="st ok">CONFIRMED</span></td><td>US, iOS, Android, and muse.ai; glasses “coming soon.” <a href="https://www.axios.com/2026/09/08/meta-debuts-muse-personal-ai-agent" rel="noopener" target="_blank">Axios</a></td></tr>
+<tr><td>Connect: voice, “Jolly,” glasses</td><td><span class="st ok">CONFIRMED</span></td><td>Meta Connect on Sep 23, 2026, 15 days later. <a href="https://techcrunch.com/2026/09/23/everything-new-coming-to-metas-ai-agent-muse/" rel="noopener" target="_blank">TechCrunch</a></td></tr>
+<tr><td>$18 billion agreement</td><td><span class="st warn">INCORRECT</span></td><td>That’s US$ 18 <strong>billion</strong> (29 states, Aug 26, 2026). Some cite “18 million.” <a href="https://techcrunch.com/2026/08/26/meta-settles-for-18-billion-in-lawsuit-brought-by-29-states-over-social-media-harms-to-children/" rel="noopener" target="_blank">TechCrunch</a></td></tr>
+<tr><td>Muse requests access to health and payments</td><td><span class="st warn">UNVERIFIED</span></td><td>Email and calendar are covered. We found no primary source listing health and payments as permissions.</td></tr>
+<tr><td>OpenMuse is MIT-licensed and from CopilotKit</td><td><span class="st ok">CONFIRMED</span></td><td><a href="https://github.com/CopilotKit/openmuse" rel="noopener" target="_blank">CopilotKit/openmuse</a>, created on Sep 15, 2026.</td></tr>
+<tr><td>2,100★, 230 forks, 22 branches</td><td><span class="st warn">OUTDATED</span></td><td>As of 09/28/2026: 2,765★, 351 forks, 22 branches, 54 commits. The numbers circulating are outdated: the repository has grown.</td></tr>
+<tr><td>Successor to “Open Bot”</td><td><span class="st ok">CONFIRMED</span></td><td><a href="https://github.com/CopilotKit/openbot" rel="noopener" target="_blank">CopilotKit/OpenBot</a>. The OpenBot adapter is in the code, but disabled by default.</td></tr>
+<tr><td>Stack (Expo, Hono, Playwright, Docker)</td><td><span class="st ok">CONFIRMED</span></td><td>Matches the README, including SQL leases, a rootless container, and a 30 s limit.</td></tr>
+<tr><td>“Pika Light” database</td><td><span class="st warn">WRONG NAME</span></td><td>É o <strong>PGlite</strong> (<code>@electric-sql/pglite</code>), with the option to use PostgreSQL.</td></tr>
+<tr><td>Features (Ideas, goals, PDF, finance, Gmail)</td><td><span class="st ok">CONFIRMED</span></td><td>The README's feature table matches item by item.</td></tr>
+<tr><td>Alpha; health, banking, and voice on the roadmap</td><td><span class="st ok">CONFIRMED</span></td><td>The roadmap also includes executable tools generated by the agent and automatic reservations/payments.</td></tr>
+<tr><td>Node 24 + pnpm 11.19.0, “4 commands”</td><td><span class="st warn">PARTIAL</span></td><td>pnpm checks out. The README asks for Node 24 LTS (the <code>package.json</code> agrees ≥22). The quickstart has 6 commands, including logging in to CopilotKit.</td></tr>
+<tr><td>“No external service” in the basics</td><td><span class="st bad">DIVERGENT</span></td><td>The model, Google, and Docker are optional, but a CopilotKit Intelligence key is required in every mode.</td></tr>
+</tbody>
+</table></div>
 </div></section>
-
 <section id="guia"><div class="wrap">
-  <span class="chip">Usage guide · step by step</span>
-  <h2>Run OpenMuse on your own machine</h2>
-  <p class="sub">Commands taken from the official README (Sep 28, 2026). Since the project is in alpha, check the repository first, as steps may change.</p>
-
-  <div class="step"><div class="b">1</div><div>
-    <h3>Prerequisites</h3>
-    <p>Node 24 LTS, pnpm 11.19.0, and a CopilotKit account, required for the Intelligence key.</p>
+<span class="chip">User guide · step by step</span>
+<h2>Run OpenMuse on your machine</h2>
+<p class="sub">Commands taken from the official README (09/28/2026). Since the project is in alpha, check the repository first because the steps may change.</p>
+<div class="step"><div class="b">1</div><div>
+<h3>Prerequisites</h3>
+<p>Node 24 LTS, pnpm 11.19.0, and a CopilotKit account, required for the Intelligence key.</p>
 <pre><span class="k">node</span> -v              <span class="c"># v24.x</span>
-<span class="k">corepack enable</span> && <span class="k">corepack prepare</span> pnpm@11.19.0 --activate</pre>
-  </div></div>
-
-  <div class="step"><div class="b">2</div><div>
-    <h3>Clone and install</h3>
-    <p>Install with the lockfile pinned to reproduce the project's exact versions.</p>
+<span class="k">corepack enable</span> &amp;&amp; <span class="k">corepack prepare</span> pnpm@11.19.0 --activate</pre>
+</div></div>
+<div class="step"><div class="b">2</div><div>
+<h3>Clone and install</h3>
+<p>Install with the lockfile frozen to reproduce the project’s exact versions.</p>
 <pre><span class="k">git clone</span> <span class="s">https://github.com/CopilotKit/OpenMuse.git</span> openmuse
 <span class="k">cd</span> openmuse
 <span class="k">pnpm install</span> --frozen-lockfile
 <span class="k">cp</span> .env.example .env</pre>
-  </div></div>
-
-  <div class="step"><div class="b">3</div><div>
-    <h3>Generate the CopilotKit Intelligence key</h3>
-    <p>This is the step the video skips. The key stays only on the server, in <code>.env</code>.</p>
+</div></div>
+<div class="step"><div class="b">3</div><div>
+<h3>Generate a CopilotKit Intelligence key</h3>
+<p>This is the step that is often left out. The key stays only on the server, in the <code>.env</code>.</p>
 <pre><span class="k">npx</span> copilotkit@latest login
 <span class="k">npx</span> copilotkit@latest project select
 <span class="c"># paste the generated key into .env:  CPK_INTELLIGENCE_API_KEY=...</span></pre>
-  </div></div>
-
-  <div class="step"><div class="b">4</div><div>
-    <h3>Start the API and the web app</h3>
-    <p>Two terminals. The sample app runs without a model, a Google account, or Docker.</p>
+</div></div>
+<div class="step"><div class="b">4</div><div>
+<h3>Start the API and web app</h3>
+<p>You’ll need two terminals. The sample app runs without a model, a Google account, or Docker.</p>
 <pre><span class="k">pnpm dev</span>        <span class="c"># terminal 1: API + task worker</span>
 <span class="k">pnpm dev:web</span>    <span class="c"># terminal 2: web interface</span></pre>
-  </div></div>
-
-  <div class="step"><div class="b">5</div><div>
-    <h3>Try the local demos</h3>
-    <p>Three demos use a test inbox, without touching anything real: fill out an outing permission slip (generates the PDF and drafts the reply), create a goal that monitors a page, and import sample transactions to see the spending summary.</p>
-  </div></div>
-
-  <div class="step"><div class="b">6</div><div>
-    <h3>Optional: your own browser and computer</h3>
-    <p>The real browser requires Chromium and a token that protects the connection. The Linux computer runs in Docker.</p>
+</div></div>
+<div class="step"><div class="b">5</div><div>
+<h3>Try the local demos</h3>
+<p>Three demos use a test inbox and don’t touch anything real: fill out a trip permission form (generates the PDF and drafts the reply), create a goal that monitors a page, and import sample transactions to see the spending summary.</p>
+</div></div>
+<div class="step"><div class="b">6</div><div>
+<h3>Optional: your own browser and computer</h3>
+<p>The real browser requires Chromium and a token that protects the connection. The Linux computer runs in Docker.</p>
 <pre><span class="k">pnpm dev:browser</span>                 <span class="c"># Playwright/Chromium worker</span>
-<span class="k">COMPUTER_ENABLED=true pnpm dev</span>   <span class="c"># turns on the Linux computer in Docker</span></pre>
-  </div></div>
-
-  <div class="step"><div class="b">7</div><div>
-    <h3>Optional: real Gmail and Calendar</h3>
-    <p>In <code>.env</code>: <code>WORKSPACE_MODE=live</code>, <code>OPENMUSE_ACCESS_KEY</code> (24+ random characters) and <code>TOKEN_ENCRYPTION_KEY</code> (32 bytes in base64), plus Google's OAuth credentials. Then restart the API.</p>
+<span class="k">COMPUTER_ENABLED=true pnpm dev</span>   <span class="c"># connects a Linux computer in Docker</span></pre>
+</div></div>
+<div class="step"><div class="b">7</div><div>
+<h3>Optional: real Gmail and Calendar</h3>
+<p>In <code>.env</code>: <code>WORKSPACE_MODE=live</code>, <code>OPENMUSE_ACCESS_KEY</code> (24+ random characters) and <code>TOKEN_ENCRYPTION_KEY</code> (32 bytes in base64), plus Google OAuth credentials. Then restart the API.</p>
 <pre><span class="k">openssl rand</span> -base64 32   <span class="c"># value for TOKEN_ENCRYPTION_KEY</span></pre>
-  </div></div>
+</div></div>
 </div></section>
-
 <section id="veredito"><div class="wrap">
-  <span class="chip">Verdict</span>
-  <h2>Which one makes sense for you</h2>
-  <p class="sub">The video's conclusion holds up: OpenMuse matches Muse's <strong>core idea</strong>, but not yet its polish or its reach.</p>
-  <div class="grid g2">
-    <div class="card"><h3>☁️ Choose Muse if…</h3><ul>
-      <li>you want to open the app and use it, with no setup;</li>
-      <li>you need voice, Meta glasses, or real purchases;</li>
-      <li>you're fine giving Meta access to email and calendar in exchange for convenience.</li>
-    </ul></div>
-    <div class="card"><h3>🖥️ Choose OpenMuse if…</h3><ul>
-      <li>you want your data on your own server;</li>
-      <li>you want to read, change and extend the code (MIT);</li>
-      <li>you're up for dealing with alpha software, <code>.env</code>, Docker, and the CopilotKit key.</li>
-    </ul></div>
-  </div>
-  <div class="note"><strong>"Free" doesn't mean "no effort."</strong> The cost moves from your card to your terminal: hosting, the key for whatever model you connect, and maintaining a project that still changes every week.</div>
+<span class="chip">Verdict</span>
+<h2>Which one makes sense for you</h2>
+<p class="sub">The conclusion circulating holds up: OpenMuse matches the <strong>central idea</strong> of Muse, but not yet its polish or reach.</p>
+<div class="grid g2">
+<div class="card"><h3>☁️ Choose Muse if…</h3><ul>
+<li>wants to open the app and use it without configuring anything;</li>
+<li>needs voice, Meta glasses, or real purchases;</li>
+<li>agrees to give Meta access to email and calendar in exchange for convenience.</li>
+</ul></div>
+<div class="card"><h3>🖥️ Choose OpenMuse if…</h3><ul>
+<li>wants the data on their own server;</li>
+<li>wants to read, change, and extend the code (MIT);</li>
+<li>is willing to deal with alpha, <code>.env</code>, Docker, and the CopilotKit key.</li>
+</ul></div>
+</div>
+<div class="note"><strong>“Free” doesn’t mean “effortless.”</strong> The cost moves from your card to your terminal: hosting, the key for the model you connect, and maintenance of a project that still changes every week.</div>
 </div></section>
-
 <section id="roadmap"><div class="wrap">
-  <span class="chip">Timeline and roadmap</span>
-  <h2>Three weeks between the announcement and the open alternative</h2>
-  <p class="sub">Dates checked against the sources. The last row is OpenMuse's declared roadmap — that is, intent, not delivery.</p>
-  <div class="phase"><div class="tag">Aug 26</div><div class="d"><strong>$18B settlement</strong><span>Meta settles with 29 US states over social media harms to children.</span></div></div>
-  <div class="phase"><div class="tag">Sep 08</div><div class="d"><strong>Meta launches Muse</strong><span>Dedicated secure VM, visible browser, free, $20 and $100 plans. US only.</span></div></div>
-  <div class="phase"><div class="tag">Sep 15</div><div class="d"><strong>CopilotKit/openmuse is born</strong><span>MIT repository, OpenBot's successor, explicitly inspired by Muse.</span></div></div>
-  <div class="phase"><div class="tag">Sep 23</div><div class="d"><strong>Meta Connect 2026</strong><span>Real-time voice, voice from a description, Jolly avatar, and glasses integration via a wake word.</span></div></div>
-  <div class="phase"><div class="tag">Sep 28</div><div class="d"><strong>This fact check</strong><span>OpenMuse at 2,765★, 351 forks and 54 commits, still in alpha.</span></div></div>
-  <div class="phase"><div class="tag">Future</div><div class="d"><strong>OpenMuse roadmap</strong><span>Health, banking and social media connectors, device push, voice, agent-generated executable tools, and automatic bookings/payments.</span></div></div>
+<span class="chip">Timeline and roadmap</span>
+<h2>Three weeks between the announcement and the open alternative</h2>
+<p class="sub">Dates verified against the sources. The last row is OpenMuse’s stated roadmap, meaning intent, not delivery.</p>
+<div class="phase"><div class="tag">Aug 26</div><div class="d"><strong>$18 billion agreement</strong><span>Meta reaches an agreement with 29 U.S. states over social media harm to children.</span></div></div>
+<div class="phase"><div class="tag">Sep 08</div><div class="d"><strong>Meta launches Muse</strong><span>Dedicated secure VM, visible browser, free, US$ 20, and US$ 100 plans. U.S. only.</span></div></div>
+<div class="phase"><div class="tag">Sep 15</div><div class="d"><strong>CopilotKit/openmuse is born</strong><span>MIT-licensed repository, successor to OpenBot, openly inspired by Muse.</span></div></div>
+<div class="phase"><div class="tag">Sep 23</div><div class="d"><strong>Meta Connect 2026</strong><span>Real-time voice, voice from a description, Jolly avatar, and glasses integration with a wake word.</span></div></div>
+<div class="phase"><div class="tag">Sep 28</div><div class="d"><strong>This fact-check</strong><span>OpenMuse with 2,765★, 351 forks, and 54 commits, still in alpha.</span></div></div>
+<div class="phase"><div class="tag">Future</div><div class="d"><strong>OpenMuse roadmap</strong><span>Health, banking, and social media connectors, push notifications on the device, voice, agent-generated executable tools, and automatic reservations/payments.</span></div></div>
 </div></section>
-
 <section id="fontes"><div class="wrap">
-  <span class="chip">Sources</span>
-  <h2>References used</h2>
-  <p class="sub">The full list, with the status of each claim, is in <a href="https://github.com/inematds/openmuse-vs-muse/blob/main/docs/VALIDACAO.md" target="_blank" rel="noopener">docs/VALIDACAO.md</a> (in Portuguese) in the repository.</p>
-  <ul class="src">
-    <li><a href="https://www.youtube.com/watch?v=cDTkWh_W-4k" target="_blank" rel="noopener">Video analyzed (YouTube)</a></li>
-    <li><a href="https://about.fb.com/news/2026/09/introducing-muse-personal-ai-agent/" target="_blank" rel="noopener">Meta: Introducing Muse</a></li>
-    <li><a href="https://research.meta.ai/blog/security-and-safety-for-ai-agents-our-approach-with-muse" target="_blank" rel="noopener">Meta AI: Muse's security and privacy</a></li>
-    <li><a href="https://about.fb.com/news/2026/09/the-biggest-news-from-connect-2026/" target="_blank" rel="noopener">Meta: what's new at Connect 2026</a></li>
-    <li><a href="https://techcrunch.com/2026/09/08/meta-debuts-its-muse-ai-agent-will-consumers-trust-it/" target="_blank" rel="noopener">TechCrunch: Muse's launch</a></li>
-    <li><a href="https://techcrunch.com/2026/09/23/everything-new-coming-to-metas-ai-agent-muse/" target="_blank" rel="noopener">TechCrunch: Muse at Connect</a></li>
-    <li><a href="https://www.axios.com/2026/09/08/meta-debuts-muse-personal-ai-agent" target="_blank" rel="noopener">Axios: pricing and availability</a></li>
-    <li><a href="https://techcrunch.com/2026/08/26/meta-settles-for-18-billion-in-lawsuit-brought-by-29-states-over-social-media-harms-to-children/" target="_blank" rel="noopener">TechCrunch: $18B settlement</a></li>
-    <li><a href="https://www.washingtonpost.com/technology/2026/08/26/meta-pay-up-18b-settle-lawsuit-alleging-social-media-harm-children/" target="_blank" rel="noopener">Washington Post: $18B settlement</a></li>
-    <li><a href="https://github.com/CopilotKit/openmuse" target="_blank" rel="noopener">GitHub: CopilotKit/openmuse</a></li>
-    <li><a href="https://github.com/CopilotKit/openbot" target="_blank" rel="noopener">GitHub: CopilotKit/OpenBot</a></li>
-  </ul>
+<span class="chip">Sources</span>
+<h2>References used</h2>
+<p class="sub">The complete list, with the status of each claim, is in <a href="https://github.com/inematds/openmuse-vs-muse/blob/main/docs/VALIDACAO.md" rel="noopener" target="_blank">docs/VALIDACAO.md</a> in the repository.</p>
+<ul class="src">
+<li><a href="https://about.fb.com/news/2026/09/introducing-muse-personal-ai-agent/" rel="noopener" target="_blank">Meta: Introducing Muse</a></li>
+<li><a href="https://research.meta.ai/blog/security-and-safety-for-ai-agents-our-approach-with-muse" rel="noopener" target="_blank">Meta AI: Muse safety and privacy</a></li>
+<li><a href="https://about.fb.com/news/2026/09/the-biggest-news-from-connect-2026/" rel="noopener" target="_blank">Meta: Connect 2026 news</a></li>
+<li><a href="https://techcrunch.com/2026/09/08/meta-debuts-its-muse-ai-agent-will-consumers-trust-it/" rel="noopener" target="_blank">TechCrunch: Muse launch</a></li>
+<li><a href="https://techcrunch.com/2026/09/23/everything-new-coming-to-metas-ai-agent-muse/" rel="noopener" target="_blank">TechCrunch: Muse at Connect</a></li>
+<li><a href="https://www.axios.com/2026/09/08/meta-debuts-muse-personal-ai-agent" rel="noopener" target="_blank">Axios: pricing and availability</a></li>
+<li><a href="https://techcrunch.com/2026/08/26/meta-settles-for-18-billion-in-lawsuit-brought-by-29-states-over-social-media-harms-to-children/" rel="noopener" target="_blank">TechCrunch: US$ 18 billion deal</a></li>
+<li><a href="https://www.washingtonpost.com/technology/2026/08/26/meta-pay-up-18b-settle-lawsuit-alleging-social-media-harm-children/" rel="noopener" target="_blank">Washington Post: US$ 18 billion deal</a></li>
+<li><a href="https://github.com/CopilotKit/openmuse" rel="noopener" target="_blank">GitHub: CopilotKit/openmuse</a></li>
+<li><a href="https://github.com/CopilotKit/openbot" rel="noopener" target="_blank">GitHub: CopilotKit/OpenBot</a></li>
+</ul>
 </div></section>
-
 <footer>
-  <div class="wrap">
-    <div class="pill">Meta Muse</div><div class="pill">OpenMuse · MIT</div><div class="pill">CopilotKit</div><div class="pill">AI Agents</div>
-    <p style="margin-top:18px">Muse × OpenMuse · independent analysis, facts checked Sep 28, 2026 ·
+<div class="wrap">
+<div class="pill">Meta Muse</div><div class="pill">OpenMuse · MIT</div><div class="pill">CopilotKit</div><div class="pill">AI agents</div>
+<p style="margin-top:18px">Muse × OpenMuse · independent analysis, facts checked on 28/09/2026 ·
       <a href="https://github.com/inematds/openmuse-vs-muse">inematds/openmuse-vs-muse</a> ·
       <a href="https://inema.club">INEMA.CLUB</a></p>
-  </div>
+</div>
 </footer>
-
 <script>
   (function(){
     var KEY='openmuse-vs-muse-theme';

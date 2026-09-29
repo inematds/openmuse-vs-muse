@@ -4,28 +4,28 @@
 
 [![Muse × OpenMuse](guia/assets/banner.jpg)](https://inematds.github.io/openmuse-vs-muse/guia/en/)
 
-A comparison between **Meta Muse**, the personal AI agent Meta launched on Sep 8, 2026, and
-**OpenMuse**, CopilotKit's MIT-licensed open source alternative. Every claim was checked against a
-primary source on Sep 28, 2026.
+Comparative analysis of **Meta Muse**, Meta’s personal AI agent launched on 8/Sept/2026, and
+**OpenMuse**, CopilotKit’s open source alternative under the MIT license, with every claim checked against
+primary sources on 28/09/2026.
 
 ## 📖 Guide
 
-Full page (comparison, fact-check and how to run OpenMuse): **https://inematds.github.io/openmuse-vs-muse/guia/en/**
+Full page (comparison, validation, and how to run OpenMuse): **https://inematds.github.io/openmuse-vs-muse/guia/en/**
 
 ## Contents
 
-- [`guia/`](guia/): landing page + guide in [PT](guia/), [EN](guia/en/) and [ES](guia/es/).
-- [`docs/VALIDACAO.md`](docs/VALIDACAO.md) (in Portuguese): every claim from the video, with its status and source.
+- [`guia/`](guia/): landing page + guide in PT, [EN](guia/en/) and [ES](guia/es/).
+- [`docs/VALIDACAO.md`](docs/VALIDACAO.md): table of all claims circulating on social media, each claim’s status, and its source.
 
 ## Key findings
 
-- Most of the video holds up: the launch, the dedicated VM, pricing (free, $20 and $100), the Connect announcements and the OpenMuse stack.
-- Meta's settlement with 29 states was $18 **billion**. At one point the video says "million".
-- The "Pika Light" database mentioned in the video is **PGlite**.
-- OpenMuse **requires a CopilotKit Intelligence key in every mode**. It is an external service outside the MIT license, and the video never mentions it.
-- Repository numbers on Sep 28, 2026: 2,765★ and 351 forks. The video cites 2,100★ and 230 forks.
+- Most of what’s circulating checks out: launch, dedicated VM, pricing (free, US$ 20, and US$ 100), Connect updates, and the OpenMuse stack.
+- Meta’s agreement with 29 states was for **US$ 18 billion**. Some cite “millions.”
+- The database referred to as “Pika Light” is **PGlite**.
+- OpenMuse **requires a CopilotKit Intelligence key in every mode**. It’s an external service, outside the MIT license, and this is almost never mentioned.
+- Repository figures as of 28/09/2026: 2,765★ and 351 forks. Outdated figures are circulating (2,100★ and 230 forks).
 
-Source analyzed: [YouTube video](https://www.youtube.com/watch?v=cDTkWh_W-4k) · Repository compared: [CopilotKit/openmuse](https://github.com/CopilotKit/openmuse)
+Compared repository: [CopilotKit/openmuse](https://github.com/CopilotKit/openmuse)
 
 ---
 
